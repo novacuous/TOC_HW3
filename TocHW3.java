@@ -11,7 +11,7 @@ import org.json.*;
 import java.io.*;
 
 
-public class TocHW3 {
+public class TocHw3 {
 
 	public static void main(String[] args) 
 	{
