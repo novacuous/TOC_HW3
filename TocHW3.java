@@ -1,8 +1,8 @@
 /*
- * ©m¦W¡GªL·¢µ¾
- * ¾Ç¸¹¡GF84006024
- * ´y­z¡G»İµ¹¤©¥|­Ó°Ñ¼Æ¡A²Ä¤@­Ó¬O¸ê®Æ¨Ó·½ªºjsonÀÉ®×³sµ²¡A«á­±¤T­Ó«h¬O·j´Mªº±ø¥ó¡A¤À§O¬°¶mÂí¥«°Ï¡B¦a§}ÃöÁä¦r¡B¥æ©ö¦~¤À(¥H«á)¡C
- *  ±qµ¹¤©ªº³sµ²§ì¤U¤@­ÓjsonªºÀÉ®×¡A§ä¥X¨Ã­pºâ©Ò¦³²Å¦X±ø¥óªºª«¥óªº¥æ©ö»ù®æ¥­§¡¡C
+ * å§“åï¼šæ—æ¥·ç¿”
+ * å­¸è™Ÿï¼šF84006024
+ * æè¿°ï¼šéœ€çµ¦äºˆå››å€‹åƒæ•¸ï¼Œç¬¬ä¸€å€‹æ˜¯è³‡æ–™ä¾†æºçš„jsonæª”æ¡ˆé€£çµï¼Œå¾Œé¢ä¸‰å€‹å‰‡æ˜¯æœå°‹çš„æ¢ä»¶ï¼Œåˆ†åˆ¥ç‚ºé„‰é®å¸‚å€ã€åœ°å€é—œéµå­—ã€äº¤æ˜“å¹´åˆ†(ä»¥å¾Œ)ã€‚
+ *  å¾çµ¦äºˆçš„é€£çµæŠ“ä¸‹ä¸€å€‹jsonçš„æª”æ¡ˆï¼Œæ‰¾å‡ºä¸¦è¨ˆç®—æ‰€æœ‰ç¬¦åˆæ¢ä»¶çš„ç‰©ä»¶çš„äº¤æ˜“åƒ¹æ ¼å¹³å‡ã€‚
  * 
 */
 import java.net.*;
@@ -21,11 +21,11 @@ public class TocHW3 {
 			return;
 		}
 		download(args[0]);
-		
+
 		//System.out.println(args[1]+" "+args[2]+" "+args[3]);
-		
+
 		File inFile = new File("downFile.json");
-		
+
 		String match = new String();
 		int count = 0;
 		long totalprice = 0; 
@@ -38,33 +38,33 @@ public class TocHW3 {
 				JSONObject jsontmp = jsonRealPrice.getJSONObject(i);
 				int year;
 				String addr;
-				
-				
-				//	System.out.println(jsontmp.getString("¶mÂí¥«°Ï")); 
-				
-				if( !jsontmp.isNull("¶mÂí¥«°Ï") && !jsontmp.isNull("¥æ©ö¦~¤ë") && !jsontmp.isNull("¤g¦a°Ï¬q¦ì¸m©Î«Øª«°ÏªùµP"))
-						if( args[1].equals(jsontmp.getString("¶mÂí¥«°Ï")) && (year = jsontmp.getInt("¥æ©ö¦~¤ë")) > Integer.parseInt(args[3]) * 100 && (addr = jsontmp.getString("¤g¦a°Ï¬q¦ì¸m©Î«Øª«°ÏªùµP")).indexOf(args[2])!= -1)
+
+
+				//	System.out.println(jsontmp.getString("é„‰é®å¸‚å€")); 
+
+				if( !jsontmp.isNull("é„‰é®å¸‚å€") && !jsontmp.isNull("äº¤æ˜“å¹´æœˆ") && !jsontmp.isNull("åœŸåœ°å€æ®µä½ç½®æˆ–å»ºç‰©å€é–€ç‰Œ"))
+						if( args[1].equals(jsontmp.getString("é„‰é®å¸‚å€")) && (year = jsontmp.getInt("äº¤æ˜“å¹´æœˆ")) > Integer.parseInt(args[3]) * 100 && (addr = jsontmp.getString("åœŸåœ°å€æ®µä½ç½®æˆ–å»ºç‰©å€é–€ç‰Œ")).indexOf(args[2])!= -1)
 				{
-					addr = jsontmp.getString("¤g¦a°Ï¬q¦ì¸m©Î«Øª«°ÏªùµP");
-					int price = jsontmp.getInt("Á`»ù¤¸");
+					addr = jsontmp.getString("åœŸåœ°å€æ®µä½ç½®æˆ–å»ºç‰©å€é–€ç‰Œ");
+					int price = jsontmp.getInt("ç¸½åƒ¹å…ƒ");
 					count++;
 					totalprice += price;
 					match += count + ":" + addr + " " + year + " " + price + "\n";
 				}
-				
-			
+
+
 			}
 			//System.out.println(match);
-			
+
 			/*
 			Scanner fs = new Scanner(new FileInputStream(inFile));
 			
 			System.out.println(fs.nextLine());
 			System.out.println(fs.nextLine());
 			*/
-			
+
 		}
-		
+
 		catch (FileNotFoundException e) 
 		{
 			// TODO Auto-generated catch block
@@ -77,30 +77,30 @@ public class TocHW3 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 		double avgprice = totalprice / count;
 		System.out.println((int)(avgprice));
-		
-		
+
+
 	}
-	
+
 	static void download(String url)
 	{
-		//System.out.println("¥¿¦b¤U¸ü¸ê®Æ......");
+		//System.out.println("æ­£åœ¨ä¸‹è¼‰è³‡æ–™......");
 		try 
 		{
 			URL sourse = new URL(url);
-			
+
 			HttpURLConnection consrc = (HttpURLConnection) sourse.openConnection();
-		
+
 			consrc.connect();
-			
+
 			BufferedInputStream rStream = new BufferedInputStream(sourse.openStream());
-			
+
 			File downFile = new File("downFile.json");
-			
+
 			BufferedOutputStream oStream = new BufferedOutputStream(new FileOutputStream(downFile));
-			
+
 			byte[] temp = new byte[4096];
 			int rlength;
 			while( (rlength = rStream.read(temp,0,4096)) != -1)
@@ -110,12 +110,12 @@ public class TocHW3 {
 			oStream.flush();
 			rStream.close();
 			oStream.close();
-			
-			
-		//	System.out.println("¤U¸ü§¹¦¨!!");
-			
-			
-			
+
+
+		//	System.out.println("ä¸‹è¼‰å®Œæˆ!!");
+
+
+
 		} 
 		catch (MalformedURLException e) 
 		{
